@@ -88,7 +88,7 @@
 					<h3 class="page-title">Penyedia Futsal</h3>
 					<?php 
 					error_reporting(0);
-					
+					session_start();
 					if(empty($_SESSION['id_admin'])){
 						echo "<script>window.location.href='login.php';</script>";
 

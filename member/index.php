@@ -1617,7 +1617,13 @@ function myMap() {
 	
 	  //buat tombol zoom out dari id map-zoom-out (tutup)
   
-  var infoWindow = new google.maps.InfoWindow({ map: map});
+  var infoWindow = new google.maps.InfoWindow({ map: map
+  
+  });
+  
+  
+        
+
 //operasi geolocation(buka)
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -1628,7 +1634,7 @@ function myMap() {
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+     
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -1652,8 +1658,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 //ambil wilayah yang mau dimarker (buka)
 var locations = [
-  ['Mesjid samsul ulum', -6.975705, 107.632086],
-  ['SMK Telkom Bandung', -6.973394, 107.626571]
+
+<?php
+include "connection.php";
+$a = mysqli_query($conn, "select * from penyedia_futsal");
+while($b = mysqli_fetch_array($a)){
+
+
+
+
+echo " ['".$b['nama_penyedia']."',$b[lat], $b[longt], '".$b['id_penyedia_futsal']."'],";
+
+}
+
+?>
   
 ];
 //ambil wilayah yang mau dimarker (tutup)
@@ -1686,18 +1704,21 @@ function setMarkers(map) {
       map: map,
       shape: shape,
       title: locations[i][0],
-      zIndex: locations[i][3]
+      zIndex: '', 
+	 
     });
 	
 	  // ambil semua data wilayah dan buat markernya (tutup)
-	  
-	  
+	
+	  var contentString = '<br><br><a href="futsal.php?id='+locations[i][3]+'" class="btn btn-primary">Lihat</a>'
+   
+   ;
 	  
     // click marker dan muncul semua data (buka)
   
 	   google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          infowindow.setContent(locations[i][0] + contentString);
           infowindow.open(map, marker);
         }
       })(marker, i));
