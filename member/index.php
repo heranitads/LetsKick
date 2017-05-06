@@ -106,6 +106,15 @@
           </div>
           <!-- END ACTION BAR -->
         </div>
+		
+			<?php error_reporting(0);
+					session_start();
+					if(empty($_SESSION['idmember'])){
+						echo "<script>window.location.href='logout.php';</script>";
+
+					}
+					
+					?>
         <!-- RIGHT SIDE -->
         <div class="pull-right full-height visible-sm visible-xs">
           <!-- START ACTION BAR -->
@@ -275,8 +284,8 @@
                 <li><a href="#"><i class="pg-signals"></i> Help</a>
                 </li>
                 <li class="bg-master-lighter">
-                  <a href="#" class="clearfix">
-                    <span class="pull-left">Logout</span>
+                  <a href="./logout.php" class="clearfix">
+                    <span class="pull-left" >Logout</span>
                     <span class="pull-right"><i class="pg-power"></i></span>
                   </a>
                 </li>

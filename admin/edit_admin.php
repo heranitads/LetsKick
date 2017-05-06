@@ -31,9 +31,10 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="index.php" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="view_penyedia.php" class="active"><i class="lnr lnr-code"></i> <span>Penyedia Futsal</span></a></li>
+						<li><a href="view_penyedia.php" ><i class="lnr lnr-code"></i> <span>Penyedia Futsal</span></a></li>
 						<li><a href="view_member.php" class=""><i class="lnr lnr-users"></i> <span>Member</span></a></li>
 						<li><a href="view_transaksi.php" class=""><i class="fa fa-credit-card"></i> <span>Transaksi Penyedia Futsal</span></a></li>
+							<li><a href="view_admin.php" class="active"><i class="lnr lnr-users"></i> <span>Admin</span></a></li>
 						
 					</ul>
 				</nav>

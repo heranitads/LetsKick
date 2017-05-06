@@ -47,6 +47,14 @@
 				</nav>
 			</div>
 			</div>
+				<?php error_reporting(0);
+					session_start();
+					if(empty($_SESSION['idmember'])){
+						echo "<script>window.location.href='logout.php';</script>";
+
+					}
+					
+					?>
 		<!-- END SIDEBAR -->
 		<!-- MAIN -->
 		<div class="main">
@@ -99,6 +107,8 @@
 								<!-- PROFILE HEADER -->
 								<div class="profile-header">
 									<div class="overlay"></div>
+									
+									
 									<?php
 											include "connection.php";
 										
